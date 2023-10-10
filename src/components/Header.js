@@ -57,12 +57,12 @@ const getSearchSuggestions=async()=>{
         <div className=' flex items-center md:col-span-3'>
         <img className='h-12 cursor-pointer hidden md:block' src={HamMenu} alt="ham-menu" onClick={()=>toggleSidebarHandler()} />
         
-        <a href="/"><img className='h-16 cursor-pointer' src={Youtube} alt="youtube-icon" /></a>
+        <Link to={"/"}><img className='h-16 cursor-pointer' src={Youtube} alt="youtube-icon" /></Link>
         </div>
        
-       <div className='py-4 pl-5  md:pl-40 md:col-span-10'>
+       <div className='py-4 sm:pl-5  md:pl-40 md:col-span-10'>
       <div>
-        <input className='border-2 border-gray-200 rounded-l-full w-[10rem] md:w-[35rem] p-2' 
+        <input className='border-2 border-gray-200 rounded-l-full w-[7rem] sm:w-[10rem] md:w-[35rem] p-2' 
        type="text"  
        value={SearchQuery}
        onChange={(e)=>{

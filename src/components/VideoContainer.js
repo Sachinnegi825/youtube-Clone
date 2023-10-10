@@ -21,7 +21,7 @@ const VideoContainer = () => {
 
   return (
     <div className={(isSidebarOpen)?'mt-20 md:mt-36 ml-32 ':"mt-20 md:mt-36 ml-0"}>
-      <div className='w-[50%] mx-2 md:w-[90%] md:mx-auto'>
+      <div className='w-[36%] sm:w-[50%] mx-2 md:w-[90%] md:mx-auto'>
         <div className='flex justify-center flex-wrap'>
         {
         videos.map((video,i)=>{
