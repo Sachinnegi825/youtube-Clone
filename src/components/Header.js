@@ -7,6 +7,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import { SEARCH_API } from '../utils/constants'
 import { TfiSearch } from "react-icons/tfi";
 import { cacheResults } from '../utils/searchSlice'
+import { Link } from 'react-router-dom'
 
 
 const Header = () => {
@@ -53,15 +54,15 @@ const getSearchSuggestions=async()=>{
 
  return (
     <div  className='grid grid-flow-col shadow-lg fixed top-0 z-30 bg-white w-screen'>
-        <div className='  hidden  md:flex md:items-center md:col-span-3'>
-        <img className='h-12 cursor-pointer ' src={HamMenu} alt="ham-menu" onClick={()=>toggleSidebarHandler()} />
+        <div className=' flex items-center md:col-span-3'>
+        <img className='h-12 cursor-pointer hidden md:block' src={HamMenu} alt="ham-menu" onClick={()=>toggleSidebarHandler()} />
         
         <a href="/"><img className='h-16 cursor-pointer' src={Youtube} alt="youtube-icon" /></a>
         </div>
        
-       <div className='py-4 pl-10  md:pl-40 md:col-span-10'>
-        <div>
-        <input className='border-2 border-gray-200 rounded-l-full w-[18rem] md:w-[35rem] p-2' 
+       <div className='py-4 pl-5  md:pl-40 md:col-span-10'>
+      <div>
+        <input className='border-2 border-gray-200 rounded-l-full w-[10rem] md:w-[35rem] p-2' 
        type="text"  
        value={SearchQuery}
        onChange={(e)=>{
@@ -73,33 +74,32 @@ const getSearchSuggestions=async()=>{
        placeholder='search'/>
         
         
-        <a href="/results"><button className='border-2 border-gray-200 bg-slate-200 rounded-r-full py-[11px] px-4'><TfiSearch/></button></a>
-        </div>
-
+        <Link to={"/results"}><button className='border-2 border-gray-200 bg-slate-200 rounded-r-full py-[11px] px-4'><TfiSearch/></button></Link>
+      </div>
         {(ShowSuggestions)&&
            <div className='fixed bg-white w-[37%] rounded-2xl  text-md font-sans cursor-pointer shadow-lg'>
-           <ul>
+             <ul>
             
-            {
-             Suggestions.map((s,i)=>{
-               return  <li className='hover:bg-gray-100 py-2 px-3 border-b border-b-gray-200' key={i}>
+               {
+                 Suggestions.map((s,i)=>{
+                  return  <li className='hover:bg-gray-100 py-2 px-3 border-b border-b-gray-200' key={i}>
                
-                 {s}
-                </li>
-             })
-            }
+                  {s}
+                  </li>
+                 })
+                }
+              
              
-             
-           </ul>
-         </div>
+             </ul>
+           </div>
         }
         
 
        </div>
         
-        <div className='pt-7 col-span-1 hidden md:block'>
-        <img className='h-6 cursor-pointer' src={UserIcon} alt="userIcon" />
-        </div>
+              <div className='pt-7 col-span-1'>
+              <img className='h-6 cursor-pointer' src={UserIcon} alt="userIcon" />
+              </div>
       
     </div>
   )

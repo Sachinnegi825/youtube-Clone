@@ -10,7 +10,7 @@ const VideoCard = ({snippet,statistics,contentDetails}) => {
   time=time.replace("S","");
 
   return (
-    <div className='cursor-pointer mx-7 my-7 w-[22rem]'>
+    <div className='cursor-pointer mx-7 my-7 w-[22rem]' >
         <div className='relative mb-3'>
           <img className='rounded-xl hover:rounded-none ease-in-out duration-700' src={snippet.thumbnails.high.url} alt="thumbnail" />
           <p className='bg-black text-white inline absolute bottom-1 right-1 font-bold'>{time}</p>

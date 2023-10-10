@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchCard from './SearchCard';
 const SearchVideos = () => {
 const [Videos,SetVideos]=useState([]);
-let val=localStorage.getItem('Result_STATE')
+let val=localStorage.getItem('Result_STATE');
 
 
 useEffect(()=>{
@@ -23,8 +23,8 @@ const SearchResults=async()=>{
     
         <div className='flex flex-col gap-16'>
         {
-        Videos?.map((video)=>{
-          return <Link to={"/watch?v="+ video.id}> <SearchCard {...video} key={video.id}/></Link>
+        Videos?.map((video,i)=>{
+          return <Link to={"/watch?v="+ video.id} key={i}> <SearchCard {...video} /></Link>
         })
       }
       

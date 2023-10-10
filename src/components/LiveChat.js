@@ -26,7 +26,7 @@ const LiveChat = () => {
             })
         )    
 
-        },2000)
+        },1000)
 
         return ()=>clearInterval(i);
     },[])
@@ -40,8 +40,8 @@ const LiveChat = () => {
       
      
        {
-          chatMessages.map((messages)=>{
-             return <LivechatMessages name={messages.name} message={messages.message}/>
+          chatMessages.map((messages,i)=>{
+             return <LivechatMessages name={messages.name} message={messages.message} key={i}/>
           })
        }
        
